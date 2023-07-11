@@ -1,0 +1,20 @@
+<h1>Login</h1>
+
+<form action="/auth/login" method="POST">
+  <label>
+    E-Mail
+    <!-- <input name="email" type="email" required value="<% if (typeof errorMessage !== 'undefined') { %>
+      <%= payload.email %>
+      <% } %>" /> -->
+    <input name="email" type="email" required value="<%= typeof errorMessage !== 'undefined' ? payload.email : '' %>" />
+  </label>
+  <label>
+    Password
+    <input name="password" type="password" required />
+  </label>
+  <button type="submit">Login</button>
+</form>
+
+<% if (typeof errorMessage !== 'undefined') { %>
+<p style="color: red"><%= errorMessage %></p>
+<% } %>
